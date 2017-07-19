@@ -29,13 +29,43 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-set term=builtin_ansi
-set expandtab ts=4 sw=4 ai
-set background=dark
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+" Search settings
+set ignorecase
+set smartcase
+set incsearch
 set hlsearch
 
-filetype plugin indent on
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+nnoremap / /\v
+vnoremap / /\v
+
+" Scroll settings
+set scrolloff=10
+set sidescrolloff=15
+
+nnoremap j gj
+nnoremap k gk
+
+" Filetype-based settings
 syntax on
+filetype on
+filetype plugin indent on
+
+" Misc
+set ruler
+set background=dark
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
