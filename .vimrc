@@ -81,4 +81,5 @@ if has('persistent_undo')
     set undofile
 endif
 
-au BufNewFile,BufRead *.ini,*.conf,*.yml set ft=jinja
+au BufNewFile,BufRead *.ini,*.yml set ft=jinja
+au BufNewFile,BufRead *.conf set ft=dosini
