@@ -1,0 +1,11 @@
+\set QUIET
+\set ON_ERROR_ROLLBACK interactive
+\set ON_ERROR_STOP on
+\pset format wrapped
+\pset null '(null)'
+\set PROMPT1 '%n@%[%033[1m%]%`echo $HOST`=>%m%[%033[0m%]:%[%033[1m%]%/%[%033[0m%]%R%x%# '
+\set PROMPT2 '%n@%[%033[1m%]%`echo $HOST`=>%m%[%033[0m%]:%[%033[1m%]%/%[%033[0m%]%R%x%# '
+\set HISTSIZE 10000
+\set HISTCONTROL ignoredups
+\timing on
+\unset QUIET
