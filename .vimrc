@@ -60,6 +60,7 @@ nnoremap k gk
 
 " Filetype-based settings
 syntax on
+colorscheme Tomorrow-Night
 filetype on
 filetype plugin indent on
 
