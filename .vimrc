@@ -60,13 +60,12 @@ nnoremap k gk
 
 " Filetype-based settings
 syntax on
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Eighties
 filetype on
 filetype plugin indent on
 
 " Misc
 set ruler
-set background=dark
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
