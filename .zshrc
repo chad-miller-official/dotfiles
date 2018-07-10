@@ -123,8 +123,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias sdb='ssh devbox'
-alias rsdb='ssh rdevbox'
+local cmd=$((RANDOM % 2))
 
-fortune | cowsay
+case $((RANDOM % 2)) in
+    0) cowcmd="cowsay" ;;
+    *) cowcmd="cowthink" ;;
+esac
+
+local cowargs=('-b' '-d' '-g' '-p' '-s' '-t' '-w' '-y')
+local cowarg=${cowargs[$RANDOM % ${#cowargs[@]}]}
+
+fortune | $cowcmd $cowarg
 echo
