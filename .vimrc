@@ -35,6 +35,8 @@ set expandtab
 set autoindent
 set smartindent
 
+set number
+
 " Search settings
 set ignorecase
 set smartcase
