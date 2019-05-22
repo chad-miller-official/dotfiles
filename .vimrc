@@ -1,41 +1,26 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
 
-" set the runtime path to include Vundle and initialize
+" Setup vundle
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'tpope/vim-fugitive'
-Bundle "lepture/vim-jinja"
+Plugin 'vim-syntastic/syntastic'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'lepture/vim-jinja'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
+" Indent settings
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
-
-set number
 
 " Search settings
 set ignorecase
@@ -49,7 +34,6 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
-
 nnoremap / /\v
 vnoremap / /\v
 
@@ -62,12 +46,17 @@ nnoremap k gk
 
 " Filetype-based settings
 syntax on
+au BufNewFile,BufRead *.ini,*.yml set ft=jinja
+au BufNewFile,BufRead *.conf set ft=dosini
+
+" Theme
 colorscheme Tomorrow-Night-Eighties
-filetype on
-filetype plugin indent on
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr ctermfg=grey
 
 " Misc
 set ruler
+set number
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
@@ -83,5 +72,18 @@ if has('persistent_undo')
     set undofile
 endif
 
-au BufNewFile,BufRead *.ini,*.yml set ft=jinja
-au BufNewFile,BufRead *.conf set ft=dosini
+" Easy-Align Settings
+vmap <Enter> <Plug>(EasyAlign)
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { "mode": "passive" }
+
+nnoremap <F7> :SyntasticCheck<CR>
+nnoremap <F8> :SyntasticReset<CR>
