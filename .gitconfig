@@ -1,0 +1,12 @@
+[user]
+	email = chad.miller.3333@gmail.com
+	name = Chad Miller
+
+[diff]
+    tool = icdiff
+
+[difftool]
+    prompt = false
+
+[difftool "icdiff"]
+    cmd = /usr/bin/icdiff $LOCAL $REMOTE | less

@@ -38,6 +38,16 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
 
+function vack
+{
+    if [[ ${#@[@]} -eq 0 ]]; then
+        echo "Nothing to search for."
+        return
+    fi
+
+    vim $(ag -rl $@)
+}
+
 # No plugins yet, might add more later
 plugins=(
 )
